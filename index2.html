@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Registration</title>
+    <link rel="stylesheet" href="style2.css">
+    <script>
+        function toggleFields() {
+            var registrationType = document.getElementById("registrationType").value;
+            if (registrationType === "individual") {
+                document.getElementById("teamFields").style.display = "none";
+                document.getElementById("individualFields").style.display = "block";
+            } else if (registrationType === "team") {
+                document.getElementById("teamFields").style.display = "block";
+                document.getElementById("individualFields").style.display = "none";
+            } else {
+                document.getElementById("teamFields").style.display = "none";
+                document.getElementById("individualFields").style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Competition Registration</h2>
+    <form action="index3.html" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="registrationType">Registration Type:</label>
+        <select id="registrationType" name="registrationType" onchange="toggleFields()" required>
+            <option value="">Select...</option>
+            <option value="individual">Individual</option>
+            <option value="team">Team</option>
+        </select><br><br>
+
+        <div id="individualFields" style="display: none;">
+            <h3>Individual Registration</h3>
+            <label for="individualName">Name:</label>
+            <input type="text" id="individualName" name="individualName"><br><br>
+
+            <label for="individualName">Email:</label>
+            <input type="email" id="individualName" name="individualName"><br><br>
+            
+            <label for="individualAge">Age:</label>
+            <input type="number" id="individualAge" name="individualAge"><br><br>
+        </div>
+
+        <div id="teamFields" style="display: none;">
+            <h3>Team Registration</h3>
+            <label for="teamName">Team Name:</label>
+            <input type="text" id="teamName" name="teamName"><br><br>
+            
+            <label for="teamMembers">Number of Members:</label>
+            <input type="number" id="teamMembers" name="teamMembers" min="1"><br><br>
+
+            <label for="teamLeader">Team Leader Name:</label>
+            <input type="text" id="teamLeader" name="teamLeader"><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+        </div>
+
+        <input type="submit" value="submit">
+    </form>
+    <a href="index3.html"></a>
+</body>
+</html>

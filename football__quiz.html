@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffcc80;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Football Quiz</h2>
+    <form id="quizForm">
+        <div>
+            <label>1. How many players are there in a football team?</label><br>
+            <input type="text" id="q1">
+        </div>
+        <div>
+            <label>2. Who won the FIFA World Cup in 2018?</label><br>
+            <input type="text" id="q2">
+        </div>
+        <button type="button" class="btn" onclick="calculateScore()">Submit</button>
+    </form>
+    <div class="score" id="score"></div>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+
+        
+            const answer1 = "11";
+            const answer2 = "France"; 
+
+            
+            const userAnswer1 = document.getElementById("q1").value.trim();
+            const userAnswer2 = document.getElementById("q2").value.trim();
+
+            if (userAnswer1 === answer1) {
+                score++;
+            }
+            if (userAnswer2.toLowerCase() === answer2.toLowerCase()) {
+                score++;
+            }
+
+            
+            document.getElementById("score").textContent =` Your score is: ${score}/2`;
+        }
+    </script>
+</body>
+</html>

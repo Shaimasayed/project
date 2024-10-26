@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Quiz</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .question input {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .sports-list {
+            margin-bottom: 20px;
+        }
+
+        .sports-list button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sports-list button:hover {
+            background-color: #45a049;
+        }
+
+        .quiz-section {
+            display: none;
+        }
+
+        .score {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function showQuiz(quizId) {
+            
+            var quizzes = document.querySelectorAll('.quiz-section');
+            quizzes.forEach(function(quiz) {
+                quiz.style.display = 'none';
+            });
+            
+            document.getElementById(quizId).style.display = 'block';
+        }
+
+        function calculateScore() {
+            let score = 0;
+
+            
+            const answers = {
+                football: ["11", "France"],
+                basketball: ["3", "Los Angeles Lakers"],
+                swimming: ["50m", "Michael Phelps"],
+                tennis: ["4", "Roger Federer"],
+                volleyball: ["3", "France"]
+            };
+
+        
+            const currentQuiz = document.querySelector('.quiz-section[style*="block"]');
+            if (currentQuiz) {
+                
+                const userAnswer1 = currentQuiz.querySelector('input[name="q1"]').value.trim();
+                const userAnswer2 = currentQuiz.querySelector('input[name="q2"]').value.trim();
+                
+                
+                if (userAnswer1 === answers.football[0]) {
+                    score++;
+                }
+                if (userAnswer2.toLowerCase() === answers.football[1].toLowerCase()) {
+                    score++;
+                }
+            }
+
+            document.getElementById("score").textContent =  `Your score is: ${score}/2`;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="sports-list">
+        <button onclick="showQuiz('footballQuiz')">Football</button>
+        <button onclick="showQuiz('basketballQuiz')">Basketball</button>
+        <button onclick="showQuiz('swimmingQuiz')">Swimming</button>
+        <button onclick="showQuiz('tennisQuiz')">Tennis</button>
+        <button onclick="showQuiz('volleyballQuiz')">Volleyball</button>
+    </div>
+
+    <div id="footballQuiz" class="quiz-section quiz-container">
+        <h3>Football Quiz</h3>
+        <div class="question">
+            <label>1. How many players are there in a football team?</label>
+            <input type="text" name="q1">
+        </div>
+        <div class="question">
+            <label>2. Who won the FIFA World Cup in 2018?</label>
+            <input type="text" name="q2">
+        </div>
+        <button type="button" onclick="calculateScore()">Submit</button>  
+    </div>
+
+    <div id="basketballQuiz" class="quiz-section quiz-container">
+        <h3>Basketball Quiz</h3>
+        <div class="question">
+            <label>1. How many points is a three-pointer worth?</label>
+            <input type="text" name="q1">
+        </div>
+        <div class="question">
+            <label>2. Which NBA team won the 2020 championship?</label>
+            <input type="text" name="q2">
+        </div>
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </div>
+
+    <div id="swimmingQuiz" class="quiz-section quiz-container">
+        <h3>Swimming Quiz</h3>
+        <div class="question">
+            <label>1. What is the length of an Olympic swimming pool?</label>
+            <input type="text" name="q1">
+        </div>
+        <div class="question">
+            <label>2. Who is the most decorated Olympic swimmer?</label>
+            <input type="text" name="q2">
+        </div>
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </div>
+
+    <div id="tennisQuiz" class="quiz-section quiz-container">
+        <h3>Tennis Quiz</h3>
+        <div class="question">
+            <label>1. How many Grand Slam tournaments are held each year?</label>
+            <input type="text" name="q1">
+        </div>
+        <div class="question">
+            <label>2. Who has won the most Wimbledon titles?</label>
+            <input type="text" name="q2">
+        </div>
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </div>
+
+    <div id="volleyballQuiz" class="quiz-section quiz-container">
+        <h3>Volleyball Quiz</h3>
+        <div class="question">
+            <label>1. How many sets are played in a standard volleyball match?</label>
+            <input type="text" name="q1">
+        </div>
+        <div class="question">
+            <label>2. Which country won the men's volleyball gold medal in the 2020 Olympics?</label>
+            <input type="text" name="q2">
+        </div>
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </div>
+
+    <div class="score" id="score"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
